@@ -1,0 +1,17 @@
+base_dir="$(dirname "$0")/SWE_2021_41_week_5-main"
+
+arrange_files() {
+    local files_dir="$1"
+    cd "$files_dir" || exit 1
+
+    for file in *; do
+        if [[ -f $file ]]; then
+            mv "$file" ..
+        fi
+    done
+}
+
+cd "$base_dir" || exit 1
+for letter in {a..z}; do
+    arrange_files "files/$letter"
+done
